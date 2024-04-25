@@ -223,6 +223,8 @@ def save_results(evaluators, results_path, experiment, N, M, L, n_seeds, model):
             n = '-'
         results[n][m][l].append(estimates)
     # Save dictionary
+    if experiment == 'use_case_4':
+        results_path = results_path + model + os.sep
     with open(results_path + 'results.pkl', 'wb') as handle:
         pickle.dump(results, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
@@ -268,10 +270,8 @@ def save_results(evaluators, results_path, experiment, N, M, L, n_seeds, model):
                 seeds_js_df.replace(-1, '-', inplace=True)  # Replace -1 values with '-'
 
                 # Saving path
-                if experiment == 'use_case_3':
+                if experiment == 'use_case_3' or experiment == 'use_case_4':
                     saving_path = results_path + str(n) + '_' + str(m) + '_' + str(l) + os.sep
-                elif experiment == 'use_case_4':
-                    saving_path = results_path + model + os.sep + str(n) + '_' + str(m) + '_' + str(l) + os.sep
                 else:
                     saving_path = results_path + str(m) + '_' + str(l) + os.sep
                 seeds_kl_df.to_csv(saving_path + 'seeds_kl.csv', index=False)
