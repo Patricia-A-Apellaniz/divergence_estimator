@@ -1,0 +1,2 @@
+N,M,L,Analytical KL,Ground Truth MC KL,Ground Truth MC KL (CI),MC KL,MC KL (CI),Disc KL,Disc KL (CI)
+10000,7500,1000,-,-,-,-,-,0.0027747170475777238,0.002798629560567438
